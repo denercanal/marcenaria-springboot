@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns=th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Marcenaria</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+
+<body>
+    <h1>Lista de Produtos</h1>
+    <h3><a href="/cadastrarProduto">Cadastrar Produto</a></h3>
+
+    <div th:each="produto : ${produtos}">
+        <div class="row">
+            <p><span th:text="${produto.nome}"></span></p>
+            <p><span th:text="${produto.comprimento}"></span></p>
+            <p><span th:text="${produto.largura}"></span></p>
+            <p><span th:text="${produto.altura}"></span></p>
+        </div>
+    </div>
+</body>
+
+</html>
