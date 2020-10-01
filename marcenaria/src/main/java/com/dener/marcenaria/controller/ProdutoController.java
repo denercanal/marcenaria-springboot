@@ -5,6 +5,7 @@ import com.dener.marcenaria.repository.ProdutoRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -33,6 +34,14 @@ public class ProdutoController {
         ModelAndView mv = new ModelAndView("index");
         Iterable<Produto> produtos = pr.findAll();
         mv.addObject("produtos", produtos);
+        return mv;
+    }
+
+    @RequestMapping("/{codigo}")
+    public ModelAndView detalhesProduto(@PathVariable("codigo") long codigo) {
+        Produto produto = pr.findByCodigo(codigo);
+        ModelAndView mv = new ModelAndView("/produto/detalhesProduto");
+        mv.addObject("produto", produto);
         return mv;
     }
 }

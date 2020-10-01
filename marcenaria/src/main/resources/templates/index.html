@@ -17,10 +17,10 @@
 
 <body>
     <h1>Lista de Produtos</h1>
-    <h3><a href="/cadastrarProduto" class="btn-floating btn-large waves-effect waves-light brown"><i
+    <h3><a href="/cadastrarProduto" class="btn-floating btn-large waves-effect waves-light black"><i
                 class="material-icons">add</i>Cadastrar
             Produto</a></h3>
-    <table>
+    <table class="container">
         <thead>
             <tr>
                 <th> Nome </th>
@@ -31,7 +31,8 @@
         </thead>
         <tbody>
             <tr th:each="produto : ${produtos}">
-                <td><span th:text="${produto.nome}"></span></td>
+                <td><a th:href="${(#mvc.url('PC#detalhesProduto').arg(0, produto.codigo)).build()}"><span
+                            th:text="${produto.nome}"></span></a></td>
                 <td><span th:text="${produto.comprimento}"></span></td>
                 <td><span th:text="${produto.largura}"></span></td>
                 <td><span th:text="${produto.altura}"></span></td>
