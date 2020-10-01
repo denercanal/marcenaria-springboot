@@ -8,20 +8,39 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src='main.js'></script>
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
 </head>
 
 <body>
     <h1>Lista de Produtos</h1>
-    <h3><a href="/cadastrarProduto">Cadastrar Produto</a></h3>
+    <h3><a href="/cadastrarProduto" class="btn-floating btn-large waves-effect waves-light brown"><i
+                class="material-icons">add</i>Cadastrar
+            Produto</a></h3>
+    <table>
+        <thead>
+            <tr>
+                <th> Nome </th>
+                <th> Comprimento </th>
+                <th> Largura </th>
+                <th> Altura </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="produto : ${produtos}">
+                <td><span th:text="${produto.nome}"></span></td>
+                <td><span th:text="${produto.comprimento}"></span></td>
+                <td><span th:text="${produto.largura}"></span></td>
+                <td><span th:text="${produto.altura}"></span></td>
+            </tr>
+        </tbody>
+    </table>
 
-    <div th:each="produto : ${produtos}">
-        <div class="row">
-            <p><span th:text="${produto.nome}"></span></p>
-            <p><span th:text="${produto.comprimento}"></span></p>
-            <p><span th:text="${produto.largura}"></span></p>
-            <p><span th:text="${produto.altura}"></span></p>
-        </div>
-    </div>
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 </body>
 
 </html>
